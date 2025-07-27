@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import os
 import logging
+import yaml
 
 
 log_dir = 'logs'
@@ -30,6 +31,19 @@ logger.info('Data Ingestion Started')
 logger.info('Data Ingestion Completed')
 
 logger.info('Data Ingestion Completed')
+
+
+def load_params(params_path: str) -> dict:
+    try:
+        with open(params_path,'r') as file:
+            params = yaml.safe_load(file)
+        logging.debug("parameters received from yaml file are: %s", params_path)
+        return params
+    
+    except Exception as e:
+        logging.error(f"Error loading parameters from {params_path}: {e}")
+        raise
+
 
 def load_data(data_url: str) -> pd.DataFrame:
     """load data from csv file"""
@@ -79,7 +93,9 @@ def save_data(train_data:pd.DataFrame, test_data:pd.DataFrame, data_path: str) -
 
 def main():
     try:
-        test_size=0.2
+        params = load_params(params_path='params.yaml')
+        test_size = params['data_ingestion']['test_size']
+        #test_size=0.2
         data_path='https://raw.githubusercontent.com/vikashishere/Datasets/main/spam.csv'
         df = load_data(data_path)
         final_df = preprocess_data(df)

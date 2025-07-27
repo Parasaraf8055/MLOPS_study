@@ -44,6 +44,15 @@
         "documentation": {}
     },
     {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
         "label": "TfidfVectorizer",
         "importPath": "sklearn.feature_extraction.text",
         "description": "sklearn.feature_extraction.text",
@@ -169,6 +178,15 @@
         "documentation": {}
     },
     {
+        "label": "load_params",
+        "kind": 2,
+        "importPath": "src.data_ingestion",
+        "description": "src.data_ingestion",
+        "peekOfCode": "def load_params(params_path: str) -> dict:\n    try:\n        with open(params_path,'r') as file:\n            params = yaml.safe_load(file)\n        logging.debug(\"parameters received from yaml file are: %s\", params_path)\n        return params\n    except Exception as e:\n        logging.error(f\"Error loading parameters from {params_path}: {e}\")\n        raise\ndef load_data(data_url: str) -> pd.DataFrame:",
+        "detail": "src.data_ingestion",
+        "documentation": {}
+    },
+    {
         "label": "load_data",
         "kind": 2,
         "importPath": "src.data_ingestion",
@@ -236,7 +254,7 @@
         "kind": 5,
         "importPath": "src.data_ingestion",
         "description": "src.data_ingestion",
-        "peekOfCode": "formatter = logging.Formatter('%(asctime)s -%(levelname)s- %(message)s')\nconsole_handler.setFormatter(formatter)\nfile_handler.setFormatter(formatter)\nlogger.addHandler(console_handler)\nlogger.addHandler(file_handler)\nlogger.info('Data Ingestion Started')\nlogger.info('Data Ingestion Completed')\nlogger.info('Data Ingestion Completed')\ndef load_data(data_url: str) -> pd.DataFrame:\n    \"\"\"load data from csv file\"\"\"",
+        "peekOfCode": "formatter = logging.Formatter('%(asctime)s -%(levelname)s- %(message)s')\nconsole_handler.setFormatter(formatter)\nfile_handler.setFormatter(formatter)\nlogger.addHandler(console_handler)\nlogger.addHandler(file_handler)\nlogger.info('Data Ingestion Started')\nlogger.info('Data Ingestion Completed')\nlogger.info('Data Ingestion Completed')\ndef load_params(params_path: str) -> dict:\n    try:",
         "detail": "src.data_ingestion",
         "documentation": {}
     },
