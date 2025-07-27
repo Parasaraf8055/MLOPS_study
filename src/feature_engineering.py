@@ -87,8 +87,8 @@ def main():
     try:
         max_features = 50
 
-        train_data = load_data('./data/processed/interim/train_processed.csv')
-        test_data = load_data('./data/processed/interim/test_processed.csv')
+        train_data = load_data('./data/interim/train_processed.csv')
+        test_data = load_data('./data/interim/test_processed.csv')
 
         train_df, test_df = apply_tfidf(train_data, test_data, max_features)
 

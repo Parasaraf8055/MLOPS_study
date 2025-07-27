@@ -82,7 +82,7 @@ def main():
         test_processed_data = pre_processing(test_data)
 
 
-        data_path = os.path.join('./data/processed','interim')
+        data_path = os.path.join('./data','interim')
         os.makedirs(data_path, exist_ok=True)
 
         train_processed_data.to_csv(os.path.join(data_path, 'train_processed.csv'), index=False)

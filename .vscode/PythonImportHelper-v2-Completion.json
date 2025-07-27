@@ -272,7 +272,7 @@
         "kind": 2,
         "importPath": "src.feature_engineering",
         "description": "src.feature_engineering",
-        "peekOfCode": "def main():\n    try:\n        max_features = 50\n        train_data = load_data('./data/processed/interim/train_processed.csv')\n        test_data = load_data('./data/processed/interim/test_processed.csv')\n        train_df, test_df = apply_tfidf(train_data, test_data, max_features)\n        save_data(train_df, os.path.join(\"./data\",\"processed\",\"train_tfidf.csv\"))\n        save_data(test_df, os.path.join(\"./data\",\"processed\",\"test_tfidf.csv\"))\n        logger.info('Feature Engineering Completed')\n    except Exception as e:",
+        "peekOfCode": "def main():\n    try:\n        max_features = 50\n        train_data = load_data('./data/interim/train_processed.csv')\n        test_data = load_data('./data/interim/test_processed.csv')\n        train_df, test_df = apply_tfidf(train_data, test_data, max_features)\n        save_data(train_df, os.path.join(\"./data\",\"processed\",\"train_tfidf.csv\"))\n        save_data(test_df, os.path.join(\"./data\",\"processed\",\"test_tfidf.csv\"))\n        logger.info('Feature Engineering Completed')\n    except Exception as e:",
         "detail": "src.feature_engineering",
         "documentation": {}
     },
@@ -488,7 +488,7 @@
         "kind": 2,
         "importPath": "src.preprocessing",
         "description": "src.preprocessing",
-        "peekOfCode": "def main():\n    try:\n        \"\"\"main function to load data, transform it\"\"\"\n        train_data = pd.read_csv('./data/raw/train.csv')\n        test_data = pd.read_csv('./data/raw/test.csv')\n        logging.debug(\"Data loaded from csv file\")\n        train_processed_data = pre_processing(train_data)\n        test_processed_data = pre_processing(test_data)\n        data_path = os.path.join('./data/processed','interim')\n        os.makedirs(data_path, exist_ok=True)",
+        "peekOfCode": "def main():\n    try:\n        \"\"\"main function to load data, transform it\"\"\"\n        train_data = pd.read_csv('./data/raw/train.csv')\n        test_data = pd.read_csv('./data/raw/test.csv')\n        logging.debug(\"Data loaded from csv file\")\n        train_processed_data = pre_processing(train_data)\n        test_processed_data = pre_processing(test_data)\n        data_path = os.path.join('./data','interim')\n        os.makedirs(data_path, exist_ok=True)",
         "detail": "src.preprocessing",
         "documentation": {}
     },
